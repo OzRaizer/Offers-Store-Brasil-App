@@ -1,29 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function ItemListContainer({ greeting }) {
-  const products = [
-    {
-      id: 1,
-      name: "Kingston NV3 1TB M.2 2280 NVMe SSD | PCIe 4.0 Gen 4x4 | Up to 6000 MB/s | SNV3S/1000G",
-      price: "R$ 449,99",
-      img: "https://m.media-amazon.com/images/I/71ZnK38jZzL._AC_SX425_.jpg",
-      link: "https://amzn.to/3YwSjV8"
-    },
-    {
-      id: 2,
-      name: "Processador AMD Ryzen 5 7600X Box (AM5/6 Cores/12 Threads/5.3GHz/38MB Cache/Radeon Graphics)",
-      price: "R$ 1549,70",
-      img: "https://m.media-amazon.com/images/I/41j61j9aZGL._AC_SX679_.jpg",
-      link: "https://amzn.to/4ecVY0a"
-    },
-    {
-      id: 3,
-      name: "Gabinete Gamer Aquário em Vidro Com 4 Ventoinhas RGB",
-      price: "R$ 322,00",
-      img: "https://m.media-amazon.com/images/I/71fwOZy2yLL._AC_SX569_.jpg",
-      link: "https://amzn.to/48tIFY4"
-    }
-  ];
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = new Promise((resolve) => {
+      setTimeout(() => {
+        resolve([
+          {
+            id: 1,
+            name: "Kingston NV3 1TB M.2 2280 NVMe SSD | PCIe 4.0 Gen 4x4 | Up to 6000 MB/s | SNV3S/1000G",
+            price: "R$ 449,99",
+            img: "https://m.media-amazon.com/images/I/71ZnK38jZzL._AC_SX425_.jpg",
+            link: "https://amzn.to/3YwSjV8"
+          },
+          {
+            id: 2,
+            name: "Processador AMD Ryzen 5 7600X Box (AM5/6 Cores/12 Threads/5.3GHz/38MB Cache/Radeon Graphics)",
+            price: "R$ 1549,70",
+            img: "https://m.media-amazon.com/images/I/41j61j9aZGL._AC_SX679_.jpg",
+            link: "https://amzn.to/4ecVY0a"
+          },
+          {
+            id: 3,
+            name: "Gabinete Gamer Aquário em Vidro Com 4 Ventoinhas RGB",
+            price: "R$ 322,00",
+            img: "https://m.media-amazon.com/images/I/71fwOZy2yLL._AC_SX569_.jpg",
+            link: "https://amzn.to/48tIFY4"
+          }
+        ]);
+      }, 2000);
+    });
+
+    fetchProducts.then((data) => setProducts(data));
+  }, []);
 
   return (
     <div className="container my-4 p-4 text-center" style={{ border: '1px solid #ddd', borderRadius: '5px' }}>
