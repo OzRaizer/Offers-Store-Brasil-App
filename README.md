@@ -1,29 +1,24 @@
-# Offers Store
+# Offers Store Brasil
 
-## Descrição
-Este é um projeto web construído com React. A aplicação permite:
-- Navegar por categorias de produtos.
-- Visualizar uma lista de itens.
-- Ver detalhes de um produto específico.
+Um projeto de e-commerce simples para gerenciamento de produtos, categorias e carrinho.
 
 ## Funcionalidades
-- **Navbar com Carrinho:** Inclui navegação entre categorias e home.
-- **Catálogo de Produtos:** Carrega produtos com base na categoria selecionada.
-- **Detalhe de Produto:** Mostra informações detalhadas de cada produto.
-
-## Comandos
-1. Instalar dependências:
-
-2. Iniciar o servidor:
-
+- **Catálogo de Produtos**: Exibição de produtos filtrados por categoria.
+- **Detalhes do Produto**: Visualização de informações detalhadas do produto.
+- **Carrinho**: Adicionar produtos ao carrinho e finalizar compras.
 
 ## Rotas
-- `/` - Lista de todos os itens.
-- `/category/:categoryId` - Itens filtrados por categoria.
-- `/item/:itemId` - Detalhes do produto.
+- `/`: Página inicial com lista de produtos.
+- `/category/:categoryId`: Produtos filtrados por categoria.
+- `/item/:itemId`: Detalhes de um produto específico.
+- `/cart`: Tela de finalização de compras.
 
 ## Tecnologias
 - React
-- React Router
+- React Router DOM
+- Hooks (useState, useEffect, useParams, useNavigate)
 
-
+## Como rodar o projeto
+1. Clone o repositório.
+2. Instale as dependências: `npm install`.
+3. Rode a aplicação: `npm start`.
