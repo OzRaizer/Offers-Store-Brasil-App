@@ -1,16 +1,20 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import CartWidget from './CartWidget';
 import { FaShoppingCart, FaFire } from 'react-icons/fa';
 
-function NavBar() {
+function Navbar() {
   return (
-    <nav className="navbar navbar-dark bg-dark px-3">
-      <h3 className="navbar-brand d-flex align-items-center">
-        <FaShoppingCart style={{ marginRight: '8px' }} />
-        Compra Fácil
-        <FaFire style={{ color: 'orange', marginLeft: '8px' }} />
-      </h3>
-      <CartWidget />
+    <nav>
+      <Link to="/" className="brand">Offers Store</Link>
+      <ul>
+        <li><Link to="/category/electronics">Electronics</Link></li>
+        <li><Link to="/category/clothing">Clothing</Link></li>
+        <li><Link to="/category/sports">Sports</Link></li>
+      </ul>
+      <div className="cart">
+        <Link to="/cart">Cart</Link>
+      </div>
     </nav>
   );
 }
