@@ -1,24 +1,31 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { fetchItemById } from "../mocks";
+import React, { useState, useEffect } from "react";
+import ItemList from "./ItemList";
 
-function ItemDetailContainer() {
-  const { itemId } = useParams();
-  const [item, setItem] = useState(null);
+function ItemListContainer({ greeting }) {
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetchItemById(itemId).then(setItem);
-  }, [itemId]);
+    const fetchProducts = async () => {
+      const data = await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve([
+            { id: 1, name: "SSD Kingston", price: 449.99 },
+            { id: 2, name: "Ryzen 5 7600X", price: 1549.7 },
+          ]);
+        }, 2000);
+      });
+      setProducts(data);
+    };
 
-  if (!item) return <p>Loading...</p>;
+    fetchProducts();
+  }, []);
 
   return (
-    <div>
-      <h1>{item.name}</h1>
-      <p>Price: ${item.price}</p>
-      <p>{item.description}</p>
+    <div className="container my-4">
+      <h2>{greeting}</h2>
+      <ItemList items={products} />
     </div>
   );
 }
 
-export default ItemDetailContainer;
+export default ItemListContainer;

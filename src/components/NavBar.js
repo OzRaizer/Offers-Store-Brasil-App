@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import CartWidget from './CartWidget';
-import { FaShoppingCart, FaFire } from 'react-icons/fa';
 
 function Navbar() {
   return (
@@ -12,11 +11,9 @@ function Navbar() {
         <li><Link to="/category/clothing">Clothing</Link></li>
         <li><Link to="/category/sports">Sports</Link></li>
       </ul>
-      <div className="cart">
-        <Link to="/cart">Cart</Link>
-      </div>
+      <CartWidget />
     </nav>
   );
 }
 
-export default NavBar;
+export default Navbar;

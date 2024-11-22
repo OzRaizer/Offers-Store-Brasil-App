@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
+import { CartContext } from '../context/CartContext';
 
 function CartWidget() {
-  const itemCount = 3; // Simulação de quantidade de itens no carrinho
+  const { cart } = useContext(CartContext);
+  const itemCount = cart.reduce((total, item) => total + item.quantity, 0); // Soma as quantidades
 
   return (
     <div style={{ color: 'white', cursor: 'pointer', position: 'relative' }}>
